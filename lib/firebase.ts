@@ -1,17 +1,21 @@
-import { initializeApp, getApps, getApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
-import { getFirestore } from 'firebase/firestore'
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyAakJB6B8Kz1e0Lw-ZbLjBOvungpSdbcGA",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "millanventas-d1053.firebaseapp.com",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "millanventas-d1053",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "millanventas-d1053.firebasestorage.app",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "749104547817",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:749104547817:web:4f5bb47dc8e374d343ed78",
-}
+  apiKey: "AIzaSyAakJB6B8Kz1e0Lw-ZbLjBOvungpSdbcGA",
+  authDomain: "millanventas-d1053.firebaseapp.com",
+  projectId: "millanventas-d1053",
+  storageBucket: "millanventas-d1053.firebasestorage.app",
+  messagingSenderId: "749104547817",
+  appId: "1:749104547817:web:4f5bb47dc8e374d343ed78",
+  measurementId: "G-0C7N6ZS0TW"
+};
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
-
-export const auth = getAuth(app)
-export const db = getFirestore(app)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
